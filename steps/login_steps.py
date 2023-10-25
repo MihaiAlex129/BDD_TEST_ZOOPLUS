@@ -23,3 +23,21 @@ def step_impl(context):
 @then('I see no account error displayed')
 def step_impl(context):
     assert context.login_page.no_account_error_is_displayed()
+
+@given('I return to the login page')
+def step_impl(context):
+    context.login_page.navigate_to_page()
+
+@when('I insert the new email "{email}"')
+def step_impl(context, email):
+    context.login_page.set_email(email)
+
+@when('I insert the new password "{password}"')
+def step_impl(context,password):
+    context.login_page.set_password(password)
+
+@then('I still see no account error displayed')
+def step_impl(context):
+    assert context.login_page.no_error_displayed()
+
+

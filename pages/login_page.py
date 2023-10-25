@@ -10,6 +10,7 @@ class LoginPage(BasePage):
     COOKIE_BUTTON = (By.ID, "onetrust-accept-btn-handler")
     NO_ACCOUNT_ERROR = (
     By.XPATH, "//p[text()='Datele de logare introduse nu sunt corecte. Vă rugăm verificați și încercați din nou.']")
+    LOGGIN_SUCCESSFUL=(By.XPATH, '//*[@id="checkout-frontend"]/div/main/section/article/h1' )
 
     # LOGGIN_BUTTON = (By.CLASS_NAME, "button__group")
 
@@ -30,3 +31,6 @@ class LoginPage(BasePage):
 
     def no_account_error_is_displayed(self):
         return self.is_displayed(self.NO_ACCOUNT_ERROR)
+
+    def no_error_displayed(self):
+        return self.is_displayed(self.LOGGIN_SUCCESSFUL)
